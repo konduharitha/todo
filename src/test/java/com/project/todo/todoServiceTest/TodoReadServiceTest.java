@@ -5,8 +5,7 @@ import com.project.todo.entity.TodoEntity;
 import com.project.todo.model.TodoImmutableModel;
 import com.project.todo.repository.TodoRepository;
 import com.project.todo.service.impl.TodoReadServiceImpl;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -29,6 +28,26 @@ public class TodoReadServiceTest {
     @InjectMocks
     private TodoReadServiceImpl todoReadService;
 
+    @BeforeAll
+    public static void beforeAllTest(){
+        System.out.println("this will get executed before all test methods executed ");
+    }
+
+    @BeforeEach
+    public void beforeEachTest(){
+        System.out.println("This method will execute before each test method executes");
+    }
+
+    @AfterEach
+    public void afterEachTest(){
+        System.out.println("This method will exeute after each test method executes");
+    }
+
+    @AfterAll
+    public static void afterALlTest(){
+        System.out.println("This method will execute after all test method execution");
+    }
+
     @Test
     void testGetAllTodos() {
         //1. mock the external service class method calls
@@ -46,6 +65,7 @@ public class TodoReadServiceTest {
 
         Mockito.verify(todoRepository, Mockito.times(1)).findAll();
     }
+
 
     @Test
     void testGetTodoById() {
