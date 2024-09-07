@@ -8,6 +8,7 @@ public final class TodoImmutableModel {
     private final Long id;
     private final String title;
     private final String description;
+
     private final Boolean completed;
     private final LocalDateTime createdAt;
     private final LocalDateTime updatedAt;
