@@ -3,12 +3,15 @@ package com.project.todo.controller;
 import com.project.todo.model.TodoImmutableModel;
 import com.project.todo.service.TodoEditService;
 import com.project.todo.service.TodoReadService;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/")
+@Slf4j
 public class TodoController {
 
     private final TodoReadService todoReadService;
@@ -37,8 +40,9 @@ public class TodoController {
     }
 
     @DeleteMapping("/{id}")
-    public String deleteTodo(@PathVariable Long id){
-       return todoEditService.deleteTodo(id);
+    public ResponseEntity<String> deleteTodo(@PathVariable Long id){
+        String resp=todoEditService.deleteTodo(id);
+       return ResponseEntity.ok(resp);
     }
 
     @PutMapping("/update")
