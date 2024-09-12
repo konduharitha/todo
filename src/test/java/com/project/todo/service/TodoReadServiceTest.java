@@ -1,4 +1,4 @@
-package com.project.todo.todoServiceTest;
+package com.project.todo.service;
 
 import com.project.todo.TodoMockData;
 import com.project.todo.entity.TodoEntity;
@@ -29,23 +29,23 @@ public class TodoReadServiceTest {
     private TodoReadServiceImpl todoReadService;
 
     @BeforeAll
-    public static void beforeAllTest(){
+    public static void beforeAllTest() {
         System.out.println("this will get executed before all test methods executed ");
     }
 
+    @AfterAll
+    public static void afterALlTest() {
+        System.out.println("This method will execute after all test method execution");
+    }
+
     @BeforeEach
-    public void beforeEachTest(){
+    public void beforeEachTest() {
         System.out.println("This method will execute before each test method executes");
     }
 
     @AfterEach
-    public void afterEachTest(){
+    public void afterEachTest() {
         System.out.println("This method will exeute after each test method executes");
-    }
-
-    @AfterAll
-    public static void afterALlTest(){
-        System.out.println("This method will execute after all test method execution");
     }
 
     @Test
